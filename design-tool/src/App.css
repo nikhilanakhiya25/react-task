@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 html, body, #root {
   margin: 0;
@@ -102,7 +102,9 @@ html, body, #root {
   max-width: 350px;
   flex-shrink: 0;
   overflow-y: auto;
-  background: #f5f5f5;
+  overflow-x: hidden;
+  background: #333;
+  color: white;
   border-right: 1px solid #ddd;
   transition: transform 0.3s ease-in-out;
 }
@@ -136,11 +138,13 @@ html, body, #root {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.1em;
+  color: white;
 }
 
 .sidebar label {
   display: block;
   margin: 10px 0 5px;
+  color: white;
 }
 
 .sidebar input, .sidebar select, .sidebar button {
