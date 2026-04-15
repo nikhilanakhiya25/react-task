@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-bar {
+  height: 60px;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.menu-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 280px !important;
+    position: fixed;
+    height: calc(100vh - 60px);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .app.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .app.sidebar-open::before {
+    content: '';
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .main-layout {
+    margin-left: 0 !important;
+  }
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  background: #f5f5f5;
+  border-right: 1px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-element-wrapper {
+  pointer-events: all;
+}
+
+.canvas {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  cursor: default;
+}
+
+.canvas h1, .canvas h2, .canvas h3, .canvas h4, .canvas h5, .canvas h6 {
+  margin: 0;
+  user-select: none;
+}
+
+.canvas [contenteditable="true"] {
+  border: 2px dashed #007bff;
+  user-select: text;
+}
+
+.sidebar h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.sidebar label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.sidebar input, .sidebar select, .sidebar button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sidebar button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background: #0056b3;
+}
+/* 
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+ */
